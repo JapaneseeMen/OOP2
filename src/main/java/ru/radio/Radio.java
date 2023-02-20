@@ -6,11 +6,13 @@ public class Radio {
     private int currentWave;
 
     public int getCurrentVolume() {
+
         return currentVolume;
     }
 
-    public int getCurrentWave(){
+    public int getCurrentWave() {
         return currentWave;
+
     }
 
 
@@ -34,22 +36,22 @@ public class Radio {
         }
         this.currentWave = wave;
     }
-    public void nextWave(){
-        if (currentWave == 9){
+
+    public void nextWave() {
+        if (currentWave == 9) {
             this.currentWave = 0;
             return;
-        }
-        else{
+        } else {
             this.currentWave = currentWave + 1;
         }
         return;
     }
-    public void prevWave(){
-        if (currentWave == 0){
+
+    public void prevWave() {
+        if (currentWave == 0) {
             this.currentWave = 9;
             return;
-        }
-        else{
+        } else {
             this.currentWave = currentWave - 1;
         }
         return;
