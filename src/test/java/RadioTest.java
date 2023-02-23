@@ -3,15 +3,55 @@ import org.junit.jupiter.api.Test;
 import ru.radio.Radio;
 
 public class RadioTest {
+
+    @Test
+
+    public void shouldSetQuantityRadioWaves() {
+
+        Radio maf = new Radio(20);
+
+        int actual = maf.getCurrentWave();
+
+        Assertions.assertEquals(0, actual);
+    }
+
+    @Test
+
+    public void shouldSetCurrentWaveWithUserQuantityWaves() {
+        Radio maf = new Radio(20);
+        maf.setCurrentWave(18);
+        int actual = maf.getCurrentWave();
+        Assertions.assertEquals(18, actual);
+    }
+
+    @Test
+
+    public void nextWaveWithUserQuantityWaves() {
+        Radio maf = new Radio(20);
+        maf.setCurrentWave(19);
+        maf.nextWave();
+        int actual = maf.getCurrentWave();
+        Assertions.assertEquals(0, actual);
+    }
+
+    @Test
+
+    public void prevWaveWithUserQuantityWaves() {
+        Radio maf = new Radio(20);
+        maf.prevWave();
+        int actual = maf.getCurrentWave();
+        Assertions.assertEquals(19, actual);
+    }
+
     @Test
 
     public void shouldSetCurrentVolume() {
 
         Radio maf = new Radio();
 
-        maf.setCurrentVolume(5);
+        maf.setCurrentVolume(45);
 
-        int expected = 5;
+        int expected = 45;
         int actual = maf.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -39,7 +79,7 @@ public class RadioTest {
 
         Radio maf = new Radio();
 
-        maf.setCurrentVolume(11);
+        maf.setCurrentVolume(101);
 
         int expected = 0;
         int actual = maf.getCurrentVolume();
@@ -53,10 +93,10 @@ public class RadioTest {
 
         Radio maf = new Radio();
 
-        maf.setCurrentVolume(9);
+        maf.setCurrentVolume(99);
         maf.increaseVolume();
 
-        int expected = 10;
+        int expected = 100;
         int actual = maf.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -67,10 +107,10 @@ public class RadioTest {
 
         Radio maf = new Radio();
 
-        maf.setCurrentVolume(10);
+        maf.setCurrentVolume(100);
         maf.increaseVolume();
 
-        int expected = 10;
+        int expected = 100;
         int actual = maf.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -95,10 +135,10 @@ public class RadioTest {
 
         Radio maf = new Radio();
 
-        maf.setCurrentVolume(10);
+        maf.setCurrentVolume(100);
         maf.reduceVolume();
 
-        int expected = 9;
+        int expected = 99;
         int actual = maf.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
